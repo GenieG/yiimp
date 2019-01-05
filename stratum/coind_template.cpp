@@ -129,7 +129,6 @@ static int decred_parse_header(YAAMP_JOB_TEMPLATE *templ, const char *header_hex
 	sprintf(templ->version, "%08x", getwork ? bswap32(header.version) : header.version);
 	sprintf(templ->ntime, "%08x", header.ntime);
 	sprintf(templ->nbits, "%08x", header.nbits);
-
 	templ->prevhash_hex[64] = '\0';
 	uint32_t* prev32 = (uint32_t*) header.prevblock;
 	for(int i=0; i < 8; i++)
@@ -308,7 +307,50 @@ YAAMP_JOB_TEMPLATE *coind_create_template(YAAMP_COIND *coind)
 	strcpy(templ->prevhash_hex, prev ? prev : "");
 	const char *flags = json_get_string(json_coinbaseaux, "flags");
 	strcpy(templ->flags, flags ? flags : "");
-
+	if(!strcmp(g_stratum_algo, "x16rt")) {
+		const char *accumulatorhashes = json_get_object(json_result, "accumulatorhashes");
+ 		debuglog("accumulatorhashes = %s | %s | %s | %s | %s",
+							accumulatorhashes[0], accumulatorhashes[1], accumulatorhashes[2], accumulatorhashes[3])
+		/*
+		{
+    "capabilities": [
+        "proposal"
+    ],
+    "version": 536870912,
+    "rules": [],
+    "vbavailable": [],
+    "vbrequired": 0,
+    "previousblockhash": "44d0673fe1621cf6a0cbc7a6cd4551ee4dd894c7ec375eca98f6387639553975",
+    "transactions": [],
+    "coinbaseaux": {
+        "flags": ""
+    },
+    "coinbasevalue": 5000000000,
+    "longpollid": "44d0673fe1621cf6a0cbc7a6cd4551ee4dd894c7ec375eca98f6387639553975376",
+    "target": "00000000001a1633000000000000000000000000000000000000000000000000",
+    "mintime": "2019-01-05 08:40:17 +0300",
+    "mutable": [
+        "time",
+        "transactions",
+        "prevblock"
+    ],
+    "noncerange": "00000000ffffffff",
+    "sigoplimit": 160000,
+    "sizelimit": 8000000,
+    "weightlimit": 8000000,
+    "curtime": "2019-01-05 13:39:19 +0300",
+    "bits": "1b1a1633",
+    "height": 3332,
+    "accumulatorhashes": {
+        "10": "d043b87cf6fc2d0cda8374b906c477e9e7e82ca9d4d9c1322311d28a9d36a052",
+        "100": "06ea92e1a6dfd0b54aacf072c8f7bacc0e11b7e38caa8476e26037d30c9d8b54",
+        "1000": "3e76c748d091f276b8fa289ecd218c43d19190105ea9d2da3ba70e782f2431dd",
+        "10000": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "proofoffullnodehash": "0000000000000000000000000000000000000000000000000000000000000000"
+}
+*/
+	}
 	// LBC Claim Tree (with wallet gbt patch)
 	const char *claim = json_get_string(json_result, "claimtrie");
 	if (claim) {
