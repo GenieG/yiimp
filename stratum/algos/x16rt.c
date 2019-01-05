@@ -1,4 +1,5 @@
 #include "x16rt.h"
+#include "sha256.h"
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
