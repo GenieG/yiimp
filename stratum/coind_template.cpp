@@ -310,7 +310,7 @@ YAAMP_JOB_TEMPLATE *coind_create_template(YAAMP_COIND *coind)
 	if(!strcmp(g_stratum_algo, "x16rt")) {
 		const char *accumulatorhashes = json_get_object(json_result, "accumulatorhashes");
  		debuglog("accumulatorhashes = %s | %s | %s | %s | %s",
-							accumulatorhashes[0], accumulatorhashes[1], accumulatorhashes[2], accumulatorhashes[3])
+							accumulatorhashes[0], accumulatorhashes[1], accumulatorhashes[2], accumulatorhashes[3]);
 		/*
 		{
     "capabilities": [
@@ -350,7 +350,7 @@ YAAMP_JOB_TEMPLATE *coind_create_template(YAAMP_COIND *coind)
     "proofoffullnodehash": "0000000000000000000000000000000000000000000000000000000000000000"
 }
 */
-	}
+	};
 	// LBC Claim Tree (with wallet gbt patch)
 	const char *claim = json_get_string(json_result, "claimtrie");
 	if (claim) {
