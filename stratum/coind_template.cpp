@@ -308,7 +308,7 @@ YAAMP_JOB_TEMPLATE *coind_create_template(YAAMP_COIND *coind)
 	const char *flags = json_get_string(json_coinbaseaux, "flags");
 	strcpy(templ->flags, flags ? flags : "");
 
-	if(!strcmp(g_stratum_algo, "x16rt")) {
+	if(strcmp(g_stratum_algo, "x16rt")) {
 
 		json_value *json_accumulatorhashes = json_get_object(json_result, "accumulatorhashes");
 		if(!json_accumulatorhashes)
