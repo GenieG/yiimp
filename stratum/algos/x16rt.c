@@ -86,13 +86,14 @@ static void getAlgoString(const uint8_t* timeHash, char *output)
         *sptr = '\0';
 }
 
+/*
 static void getTimeHash(const uint32_t timeStamp, void* timeHash)
 {
     int32_t maskedTime = timeStamp & TIME_MASK;
 
     sha256d((unsigned char*)timeHash, (const unsigned char*)&(maskedTime), sizeof(maskedTime));
 }
-
+*/
 void x16rt_hash(const char* input, char* output )
 {
         uint32_t hash[64/4];
@@ -122,7 +123,7 @@ void x16rt_hash(const char* input, char* output )
     uint32_t ntime = in32[17];
 
     uint32_t timeHash[64/4];
-        getTimeHash(ntime, &timeHash);
+        //getTimeHash(ntime, &timeHash);
         getAlgoString(&timeHash[0], hashOrder);
 
 
