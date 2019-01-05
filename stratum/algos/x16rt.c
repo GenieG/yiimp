@@ -92,7 +92,7 @@ static void getTimeHash(const uint32_t timeStamp, void* timeHash)
 {
     int32_t maskedTime = timeStamp & TIME_MASK;
 
-    sha256_double_hash((unsigned char*)timeHash, (const unsigned char*)&(maskedTime), sizeof(maskedTime));
+    sha256_double_hash((unsigned char*)timeHash, (const unsigned char*)&(maskedTime), sizeof(maskedTime), 0);
 }
 
 void x16rt_hash(const char* input, char* output , uint32_t len)
