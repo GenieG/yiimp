@@ -100,6 +100,7 @@ static int decred_parse_header(YAAMP_JOB_TEMPLATE *templ, const char *header_hex
 	struct __attribute__((__packed__)) {
 		uint32_t version;
 		char prevblock[32];
+		char prooffullnode[32];
 		char merkleroot[32];
 		char stakeroot[32];
 		uint16_t votebits;
