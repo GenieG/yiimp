@@ -321,6 +321,18 @@ YAAMP_JOB_TEMPLATE *coind_create_template(YAAMP_COIND *coind)
 		const char *prooffullnode = json_get_string(json_result, "proofoffullnodehash");
 		strcpy(templ->prooffullnode, prooffullnode ? prooffullnode : "");
 
+		const char *denom10 = json_get_string(json_accumulatorhashes, "10");
+		strcpy(templ->denom10, denom10 ? denom10 : "");
+
+		const char *denom10 = json_get_string(json_accumulatorhashes, "100");
+		strcpy(templ->denom100, denom100 ? denom100 : "");
+
+		const char *denom10 = json_get_string(json_accumulatorhashes, "1000");
+		strcpy(templ->denom1000, denom1000 ? denom1000 : "");
+
+		const char *denom10 = json_get_string(json_accumulatorhashes, "10000");
+		strcpy(templ->denom10000, denom10000 ? denom10000 : "");
+
 	}
 
 	// LBC Claim Tree (with wallet gbt patch)
