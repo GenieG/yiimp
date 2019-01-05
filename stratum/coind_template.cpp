@@ -316,7 +316,7 @@ YAAMP_JOB_TEMPLATE *coind_create_template(YAAMP_COIND *coind)
 			return NULL;
 		}
 
-		const char *prooffullnode = json_get_string(json_result, "proofoffullnodehash");
+		const char *proofoffullnodehash = json_get_string(json_result, "proofoffullnodehash");
 		strcpy(templ->prooffullnode, proofoffullnodehash ? proofoffullnodehash : "");
 		/*
 		denom10
