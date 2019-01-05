@@ -16,7 +16,7 @@ static void job_mining_notify_buffer(YAAMP_JOB *job, char *buffer)
 {
 	YAAMP_JOB_TEMPLATE *templ = job->templ;
 
-	if(strcmp(g_stratum_algo, "x16rt")) {
+	if(!strcmp(g_stratum_algo, "x16rt")) {
 		debuglog("templ: %s", templ);
 		sprintf(buffer, "{\"id\":null,\"method\":\"mining.notify\",\"params\":["
 			"\"%x\",\"%s\",\"%s\",\"%s\",\"%s\",[%s],\"%s\",\"%s\",\"%s\",true]}\n",
