@@ -49,6 +49,7 @@ function yaamp_get_algos()
 		'x14',
 		'x15',
 		'x16r',
+		'x16rt',
 		'x16s',
 		'x17',
 		'x22i',
@@ -86,6 +87,7 @@ function yaamp_algo_mBTC_factor($algo)
 	case 'sha256':
 	case 'sha256t':
 	case 'sha256q':
+	case 'x16rt':
 	case 'blake':
 	case 'blakecoin':
 	case 'blake2s':
@@ -114,6 +116,7 @@ function yaamp_get_algo_norm($algo)
 		'scryptn'	=> 1.0,
 		'x11'		=> 1.0,
 		'x13'		=> 1.0,
+		'x16rt'		=> 1.0,
 		'argon2'	=> 1.0,
 		'argon2d-dyn'	=> 1.0,
 		'lyra2'		=> 1.0,
@@ -160,6 +163,7 @@ function getAlgoColors($algo)
 		'x14'		=> '#f0c080',
 		'x15'		=> '#f0b080',
 		'x16r'		=> '#f0b080',
+		'x16rt'		=> '#f0b080',
 		'x16s'		=> '#f0b080',
 		'x17'		=> '#f0b0a0',
 		'x22i'		=> '#f0a090',
@@ -243,6 +247,7 @@ function getAlgoPort($algo)
 		'x13'		=> 3633,
 		'x15'		=> 3733,
 		'x16r'		=> 3636,
+		'x16r'		=> 3646,
 		'x16s'		=> 3663,
 		'x17'		=> 3737,
 		'x22i'		=> 3223,
