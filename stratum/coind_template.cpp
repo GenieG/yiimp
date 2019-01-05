@@ -308,10 +308,28 @@ YAAMP_JOB_TEMPLATE *coind_create_template(YAAMP_COIND *coind)
 	const char *flags = json_get_string(json_coinbaseaux, "flags");
 	strcpy(templ->flags, flags ? flags : "");
 	if(!strcmp(g_stratum_algo, "x16rt")) {
-		const char *accumulatorhashes = json_get_object(json_result, "accumulatorhashes");
- 		debuglog("accumulatorhashes = %s | %s | %s | %s | %s",
-							accumulatorhashes[0], accumulatorhashes[1], accumulatorhashes[2], accumulatorhashes[3]);
+		json_value *json_accumulatorhashes = json_get_object(json_result, "accumulatorhashes");
+		if(!json_accumulatorhashes)
+		{
+			coind_error(coind, "getblocktemplate accumulatorhashes");
+			json_value_free(json);
+			return NULL;
+		}
+		const char *denom10 = json_get_string(json_accumulatorhashes, "10");
+		strcpy(templ->denom10, denom10 ? denom10 : "");
+		const char *denom10 = json_get_string(json_accumulatorhashes, "100");
+		strcpy(templ->denom100, denom100 ? denom10 : "");
+		const char *denom100 = json_get_string(json_accumulatorhashes, "1000");
+		strcpy(templ->denom1000, denom1000 ? denom1000 : "");
+		const char *denom1000 = json_get_string(json_accumulatorhashes, "10000");
+		strcpy(templ->denom10000, denom10000 ? denom10000 : "");
+		const char *prooffullnode = json_get_string(json_result, "proofoffullnodehash");
+		strcpy(templ->prooffullnode, prooffullnode ? prooffullnode : "");
 		/*
+		denom10
+denom100
+denom1000
+denom10000
 		{
     "capabilities": [
         "proposal"
