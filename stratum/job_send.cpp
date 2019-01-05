@@ -19,7 +19,7 @@ static void job_mining_notify_buffer(YAAMP_JOB *job, char *buffer)
 	if(!strcmp(g_stratum_algo, "x16rt")) {
 		//debuglog("templ: %s", templ);
 		sprintf(buffer, "{\"id\":null,\"method\":\"mining.notify\",\"params\":["
-			"\"%x\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",true]}\n",
+			"\"%x\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",true]}\n",
 			//*job_id, *prevhash, *denom10, *denom100, *denom1000, *denom10000, *prooffullnode, *coinb1, *coinb2, *version, *nbits, *stime;
 			job->id, templ->prevhash_be, templ->denom10, templ->denom100, templ->denom1000, templ->denom10000, templ->prooffullnode, templ->coinb1, templ->coinb2, templ->version, templ->nbits, templ->ntime);
 		return;
