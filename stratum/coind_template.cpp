@@ -119,6 +119,7 @@ static int decred_parse_header(YAAMP_JOB_TEMPLATE *templ, const char *header_hex
 		uint32_t hashtag[3];
 	} header;
 
+
 	//debuglog("HEADER: %s\n", header_hex);
 
 	binlify((unsigned char*) &header, header_hex);
@@ -597,18 +598,3 @@ bool coind_create_job(YAAMP_COIND *coind, bool force)
 
 	return true;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
