@@ -309,7 +309,7 @@ YAAMP_JOB_TEMPLATE *coind_create_template(YAAMP_COIND *coind)
 	strcpy(templ->flags, flags ? flags : "");
 
 	if(!strcmp(g_stratum_algo, "x16rt")) {
-		debuglog("work x16rt");
+		debuglog("work x16rt\n");
 		json_value *json_accumulatorhashes = json_get_object(json_result, "accumulatorhashes");
 		if(!json_accumulatorhashes)
 		{
@@ -391,7 +391,7 @@ YAAMP_JOB_TEMPLATE *coind_create_template(YAAMP_COIND *coind)
 		sprintf(templ->version, "%08x", nVersion);
 	}
 
-//	debuglog("%s ntime %s\n", coind->symbol, templ->ntime);
+	debuglog("%s ntime %s\n", coind->symbol, templ->ntime);
 //	uint64_t target = decode_compact(json_get_string(json_result, "bits"));
 //	coind->difficulty = target_to_diff(target);
 
