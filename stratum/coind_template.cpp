@@ -117,7 +117,6 @@ static int decred_parse_header(YAAMP_JOB_TEMPLATE *templ, const char *header_hex
 		unsigned char extra[32];
 		uint32_t stakever;
 		uint32_t hashtag[3];
-		char prooffullnode[32];
 	} header;
 
 
@@ -319,8 +318,7 @@ YAAMP_JOB_TEMPLATE *coind_create_template(YAAMP_COIND *coind)
 			return NULL;
 		}
 
-		const char *prooffullnode = json_get_string(json_result, "proofoffullnodehash");
-		strcpy(templ->prooffullnode, prooffullnode ? prooffullnode : "");
+		templ->prooffullnode = son_get_string(json_result, "proofoffullnodehash");
 
 	}
 
