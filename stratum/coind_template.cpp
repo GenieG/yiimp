@@ -319,8 +319,8 @@ YAAMP_JOB_TEMPLATE *coind_create_template(YAAMP_COIND *coind)
 			return NULL;
 		}
 
-		const char *proofoffullnodehash = json_get_string(json_result, "proofoffullnodehash");
-		strcpy(templ->prooffullnode, proofoffullnodehash);
+		const char *profnode = json_get_string(json_result, "proofoffullnodehash");
+		strcpy(templ->prooffullnode, profnode ? profnode : "");
 
 	}
 
