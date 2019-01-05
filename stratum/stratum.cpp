@@ -128,6 +128,7 @@ YAAMP_ALGO g_algos[] =
 	{"xevan", xevan_hash, 0x100, 0, 0},
 
 	{"x16r", x16r_hash, 0x100, 0, 0},
+	{"x16rt", x16rt_hash,  0x100, 0, 0},
 	{"x16s", x16s_hash, 0x100, 0, 0},
 	{"timetravel", timetravel_hash, 0x100, 0, 0},
 	{"bitcore", timetravel10_hash, 0x100, 0, 0},
@@ -164,7 +165,7 @@ YAAMP_ALGO g_algos[] =
 	{"keccak", keccak256_hash, 0x80, 0, sha256_hash_hex },
 	{"keccakc", keccak256_hash, 0x100, 0, 0},
 	{"hex", hex_hash, 0x100, 0, sha256_hash_hex },
-	
+
 	{"phi", phi_hash, 1, 0, 0},
 	{"phi2", phi2_hash, 0x100, 0, 0},
 
@@ -476,4 +477,3 @@ void *stratum_thread(void *p)
 		pthread_detach(thread);
 	}
 }
-
