@@ -115,7 +115,6 @@ function yaamp_get_algo_norm($algo)
 		'scryptn'	=> 1.0,
 		'x11'		=> 1.0,
 		'x13'		=> 1.0,
-		'x16rt'		=> 1.0,
 		'argon2'	=> 1.0,
 		'argon2d-dyn'	=> 1.0,
 		'lyra2'		=> 1.0,
