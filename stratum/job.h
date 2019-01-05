@@ -30,6 +30,7 @@ struct YAAMP_JOB_TEMPLATE
 	char extradata_hex[512];
 	char extradata_be[512];
 
+	char prooffullnode[512];
 	// todo: can use extra field
 	char claim_hex[128];
 	char claim_be[128];
@@ -60,6 +61,7 @@ struct YAAMP_JOB_TEMPLATE
 	int filtered_txs_fee;
 
 	int auxs_size;
+
 	YAAMP_COIND_AUX *auxs[MAX_AUXS];
 };
 
@@ -131,9 +133,3 @@ void coinbase_create(YAAMP_COIND *coind, YAAMP_JOB_TEMPLATE *templ, json_value *
 vector<string> coind_aux_hashlist(YAAMP_COIND_AUX **auxs, int size);
 vector<string> coind_aux_merkle_branch(YAAMP_COIND_AUX **auxs, int size, int index);
 void coind_aux_build_auxs(YAAMP_JOB_TEMPLATE *templ);
-
-
-
-
-
-

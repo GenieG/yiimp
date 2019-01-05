@@ -130,7 +130,6 @@ static int decred_parse_header(YAAMP_JOB_TEMPLATE *templ, const char *header_hex
 	sprintf(templ->ntime, "%08x", header.ntime);
 	sprintf(templ->nbits, "%08x", header.nbits);
 	templ->prevhash_hex[64] = '\0';
-	templ->prooffullnode[32] = '\0';
 	uint32_t* prev32 = (uint32_t*) header.prevblock;
 	for(int i=0; i < 8; i++)
 		sprintf(&templ->prevhash_hex[i*8], "%08x", getwork ? prev32[7-i] : bswap32(prev32[7-i]));
