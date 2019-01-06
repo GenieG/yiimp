@@ -549,7 +549,7 @@ void *client_thread(void *p)
 		json_value *json = socket_nextjson(client->sock, client);
 		if(!json)
 		{
-//			clientlog(client, "bad json");
+			clientlog(client, "bad json");
 			break;
 		}
 
@@ -671,4 +671,3 @@ void *client_thread(void *p)
 
 	pthread_exit(NULL);
 }
-
