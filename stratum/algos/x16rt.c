@@ -70,7 +70,7 @@ enum Algo {
 static __thread uint32_t s_ntime = UINT32_MAX;
 static __thread char hashOrder[HASH_FUNC_COUNT + 1] = { 0 };
 
-static void getAlgoString(const uint8_t* timeHash, char *output)
+void getAlgoString(const uint8_t* timeHash, char *output)
 {
         char *sptr = output;
         uint8_t* data = (uint8_t*)timeHash;
@@ -88,7 +88,7 @@ static void getAlgoString(const uint8_t* timeHash, char *output)
 }
 
 
-static void getTimeHash(const uint32_t timeStamp, void* timeHash)
+void getTimeHash(const uint32_t timeStamp, void* timeHash)
 {
     int32_t maskedTime = timeStamp & TIME_MASK;
 
