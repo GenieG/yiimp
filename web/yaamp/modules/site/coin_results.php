@@ -6,6 +6,7 @@ if (!$coin) $this->goback();
 $PoS = ($coin->algo == 'PoS'); // or if 'stake' key is present in 'getinfo' method
 $DCR = ($coin->rpcencoding == 'DCR' || $coin->getOfficialSymbol() == 'DCR');
 $DGB = ($coin->rpcencoding == 'DGB' || $coin->getOfficialSymbol() == 'DGB');
+$VEIL = ($coin->rpcencoding == 'VEIL' || $coin->getOfficialSymbol() == 'VEIL');
 $ETH = ($coin->rpcencoding == 'GETH');
 
 $remote = new WalletRPC($coin);
@@ -204,7 +205,7 @@ echo "<th>Difficulty</th>";
 echo "<th>Blocks</th>";
 echo "<th>Balance</th>";
 echo "<th>BTC</th>";
-if ($PoS || $DCR) echo "<th>Stake</th>";
+if ($PoS || $DCR ) echo "<th>Stake</th>";
 if ($DCR) echo "<th>Ticket price</th>";
 echo "<th>Conns</th>";
 
@@ -297,7 +298,7 @@ echo <<<end
 end;
 
 $account = '';
-if ($DCR || $DGB) $account = '*';
+if ($DCR || $DGB || $VEIL) $account = '*';
 else if ($ETH) $account = $coin->master_wallet;
 
 $txs = $remote->listtransactions($account, $maxrows);
