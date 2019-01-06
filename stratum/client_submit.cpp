@@ -3,7 +3,7 @@
 
 uint64_t lyra2z_height = 0;
 
-//#define MERKLE_DEBUGLOG
+#define MERKLE_DEBUGLOG
 //#define DONTSUBMIT
 
 void build_submit_values(YAAMP_JOB_VALUES *submitvalues, YAAMP_JOB_TEMPLATE *templ,
@@ -32,7 +32,7 @@ void build_submit_values(YAAMP_JOB_VALUES *submitvalues, YAAMP_JOB_TEMPLATE *tem
 	printf("merkle root %s\n", merkleroot.c_str());
 #endif
 	if (!strcmp(g_stratum_algo, "x16rt")){
-	 	sprintf(submitvalues->header, "%s%s%s%s%s%s%s%s%s%s%s%s", templ->version, templ->prevhash_be, submitvalues->merkleroot_be, ntime, templ->nbits, nonce);
+	 	sprintf(submitvalues->header, "%s%s%s%s%s%s", templ->version, templ->prevhash_be, submitvalues->merkleroot_be, ntime, templ->nbits, nonce);
 	 	ser_string_be(submitvalues->header, submitvalues->header_be, 20);
 	} else if (!strcmp(g_stratum_algo, "lbry")) {
 		sprintf(submitvalues->header, "%s%s%s%s%s%s%s", templ->version, templ->prevhash_be, submitvalues->merkleroot_be, templ->claim_be, ntime, templ->nbits, nonce);
