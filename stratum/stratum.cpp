@@ -280,7 +280,7 @@ int main(int argc, char **argv)
 	g_limit_txs_per_block = iniparser_getint(ini, "STRATUM:max_txs_per_block", 0);
 
 	g_debuglog_client = iniparser_getint(ini, "DEBUGLOG:client", false);
-	g_debuglog_hash = iniparser_getint(ini, "DEBUGLOG:hash", false);
+	g_debuglog_hash = iniparser_getint(ini, "DEBUGLOG:hash", true);
 	g_debuglog_socket = iniparser_getint(ini, "DEBUGLOG:socket", false);
 	g_debuglog_rpc = iniparser_getint(ini, "DEBUGLOG:rpc", false);
 	g_debuglog_list = iniparser_getint(ini, "DEBUGLOG:list", false);
