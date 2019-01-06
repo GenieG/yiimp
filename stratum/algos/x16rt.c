@@ -117,7 +117,7 @@ void x16rt_hash(const char* input, char* output)
         sph_sha512_context       ctx_sha512;
 
         void *in = (void*) input;
-        int size = len;
+        int size = 80;
 
 
     uint32_t *in32 = (uint32_t*) input;
