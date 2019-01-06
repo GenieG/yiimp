@@ -46,7 +46,6 @@ void build_submit_values(YAAMP_JOB_VALUES *submitvalues, YAAMP_JOB_TEMPLATE *tem
 
 	binlify(submitvalues->header_bin, submitvalues->header_be);
 
-//	printf("%s\n", submitvalues->header_be);
 	int header_len = strlen(submitvalues->header)/2;
 	g_current_algo->hash_function((char *)submitvalues->header_bin, (char *)submitvalues->hash_bin, header_len);
 
