@@ -492,10 +492,6 @@ bool client_submit(YAAMP_CLIENT *client, json_value *json_params)
 	else
 		build_submit_values(&submitvalues, templ, client->extranonce1, extranonce2, ntime, nonce);
 
-	if(!strcmp(g_stratum_algo, "x16rt")) {
-		build_submit_values(&submitvalues, templ, client->extranonce1, ntime, nonce);
-	}
-
 	if (templ->height && !strcmp(g_current_algo->name,"lyra2z")) {
 		lyra2z_height = templ->height;
 	}
