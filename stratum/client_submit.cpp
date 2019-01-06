@@ -391,9 +391,6 @@ bool client_submit(YAAMP_CLIENT *client, json_value *json_params)
 			// lux optional field, smart contral root hashes (not mandatory on shares submit)
 			strncpy(extra, json_params->u.array.values[5]->u.string.ptr, 128);
 			string_lower(extra);
-		} else if (strstr(g_stratum_algo, "x16rt")) {
-			// x16rt
-
 		} else {
 			// heavycoin vote
 			strncpy(vote, json_params->u.array.values[5]->u.string.ptr, 7);
